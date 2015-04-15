@@ -28,9 +28,13 @@ router.get('/:stack', function(req, res) {
       return;
     }
     var allTweets = [];
+    console.log(tweets.statuses[0])
     console.log('got x results:', tweets.statuses.length);
     for(var i = 0; i < tweets.statuses.length; i++){
-      allTweets.push(tweets.statuses[i].text);
+      allTweets.push({
+        text: tweets.statuses[i].text,
+        username: tweets.statuses[i].user.screen_name
+      });
     }
     res.send(allTweets);
   });

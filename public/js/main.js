@@ -23,7 +23,7 @@ $(function(){
     $.ajax({ url: '/tweets/'+stackName}).done(function(data){
       $('#results').html('');
       for(var i = 0; i < data.length; i++){
-        var li = '<li>' + data[i] + '</li>';
+        var li = '<li>' +data[i].username+ ' says: '+ data[i].text + '</li>';
         $('#results').append(li);
       }
       $('#loading-gif').hide();
